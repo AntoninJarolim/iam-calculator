@@ -4,13 +4,13 @@ use std::fs::OpenOptions;
 use colored::Colorize;
 fn main() {
     count_for_four([1, 9, 8, 9]);
-
     /*
     for mut i in 0..10 {
         for mut j in 0..10 {
-            countForTwo([i, j]);
+            count_for_two([i, j]);
         }
-    }*/
+    }
+    */
 }
 fn count_for_four( init: [u8;4]) {
     println!("1 9 8 9");
@@ -68,8 +68,8 @@ fn count_for_two( init: [u8;2]) -> std::io::Result<()> {
             if i == 0 {
                 continue;
             }
-            let s = println!("for [{}, {}] Found at: {}",init[0], init[1], i);
-            file.write(format!("for [{}, {}] Found at: {}\n", init[0], init[1], i).as_bytes()).unwrap();
+            let s = println!("For [{}, {}] found at: {}",init[0], init[1], i);
+            file.write(format!("For [{}, {}] found at: {}\n", init[0], init[1], i).as_bytes()).unwrap();
             break;
         }
     }
