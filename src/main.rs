@@ -1,7 +1,9 @@
+use std::cmp;
 use std::fs::File;
 use std::io::prelude::*;
 use std::fs::OpenOptions;
 use colored::Colorize;
+
 fn main() {
     count_for_four([1, 9, 8, 9]);
     /*
@@ -19,12 +21,8 @@ fn count_for_four( init: [u8;4]) {
     let mut min: u8 = 200;
     for mut i in 1..1561 {
         let sum: u8 = all.iter().sum();
-        if (sum < min) {
-            min = sum;
-        }
-        if (sum > max) {
-            max = sum;
-        }
+        min = cmp::min(min, sum);
+        max = cmp::min(max, sum);
 
         let new_item = sum % 10;
         print!("{}.", i);
@@ -50,12 +48,8 @@ fn count_for_two( init: [u8;2]) -> std::io::Result<()> {
     let mut min: u8 = 200;
     for mut i in 1..100 {
         let sum: u8 = all.iter().sum();
-        if sum < min {
-            min = sum;
-        }
-        if sum > max {
-            max = sum;
-        }
+        min = cmp::min(min, sum);
+        max = cmp::min(max, sum);
 
         let new_item = sum % 10;
         print!("{}.", i);
